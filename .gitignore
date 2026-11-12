@@ -3,3 +3,6 @@
 .DS_Store
 .env
 *.tmp
+__pycache__/
+*.pyc
+/testfuzz/.bin/

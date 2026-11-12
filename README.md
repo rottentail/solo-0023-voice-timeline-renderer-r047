@@ -193,6 +193,27 @@ Each check creates an isolated temporary data directory, starts the real HTTP
 handler, sends generated WAV inputs, and verifies read-back or rendered output.
 The checks are bounded and do not require network access.
 
+## Generative registration and render verification
+
+The bounded smoke checks above only use one sine WAV and one non-audio blob,
+so they cannot observe WAV-shaped inputs that are accepted while their stored
+media facts drift from the real payload. A generative, differential harness
+lives under `testfuzz/` and is documented in `testfuzz/README.md`:
+
+```bash
+python3 -I testfuzz/run.py
+```
+
+It boots the real service through the test-only `cmd/fuzzmedia` launcher,
+generates canonical, legal-but-uncommon, invalid, and fact-lying WAV
+containers, and judges them with an independent from-scratch RIFF/WAVE
+oracle (no production decoder code is imported). Every divergence is
+observed over the public HTTP paths, checked again through the render
+pipeline, and automatically minimised to the smallest container that still
+shows the same discrepancy while preserving the original data error.
+Findings with replay scripts are written to `testfuzz/findings/`.
+
+
 ## Deferred test boundary
 
 This baseline contains no unit tests, test fixtures, browser checks, or

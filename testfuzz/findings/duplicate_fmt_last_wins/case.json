@@ -1,0 +1,49 @@
+{
+  "case": {
+    "description": "two fmt chunks with different sample rates",
+    "name": "duplicate_fmt_last_wins",
+    "oracle_expected_accept": false,
+    "semantic": true
+  },
+  "original_size": 164,
+  "preserved_oracle_facts": {
+    "accepted": false,
+    "reason": "duplicate_fmt_chunk"
+  },
+  "reduced_size": 70,
+  "reduction_iterations": 3,
+  "report": {
+    "description": "two fmt chunks with different sample rates",
+    "divergences": [
+      {
+        "category": "false_accept",
+        "detail": "oracle rejects (duplicate_fmt_chunk: 2 fmt chunks), service returns 201"
+      }
+    ],
+    "expectation_accept": false,
+    "http_status": 201,
+    "name": "duplicate_fmt_last_wins",
+    "oracle_accepted": false,
+    "oracle_facts": {},
+    "oracle_reason": "duplicate_fmt_chunk",
+    "render_checked": false,
+    "render_detail": "",
+    "semantic": true,
+    "service_accepted": true,
+    "service_error_code": null,
+    "service_facts": {
+      "bits_per_sample": 16,
+      "byte_count": 70,
+      "channels": 1,
+      "created_at": "2026-11-12T01:07:26.87457Z",
+      "digest": "84484a6e3b3962f70876adecc193c771903d0feb7b9b7b0315aa55557244c9d4",
+      "duration_ms": 0,
+      "frame_count": 1,
+      "id": "red_00057_duplicate_fmt_last_wins",
+      "name": "fuzz duplicate_fmt_last_wins",
+      "peak_dbfs": -120,
+      "rms_dbfs": -120,
+      "sample_rate": 8000
+    }
+  }
+}

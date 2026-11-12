@@ -1,0 +1,54 @@
+{
+  "case": {
+    "description": "WAVEFORMATEXTENSIBLE header describing plain PCM",
+    "name": "extensible_pcm",
+    "oracle_expected_accept": true,
+    "semantic": false
+  },
+  "original_size": 164,
+  "preserved_oracle_facts": {
+    "accepted": true,
+    "channels": 1,
+    "data_bytes": 2,
+    "data_chunk_count": 1,
+    "data_frame_parts": [
+      1
+    ],
+    "frame_count": 1,
+    "sample_rate": 16000
+  },
+  "reduced_size": 70,
+  "reduction_iterations": 4,
+  "report": {
+    "description": "WAVEFORMATEXTENSIBLE header describing plain PCM",
+    "divergences": [
+      {
+        "category": "false_reject",
+        "detail": "oracle accepts legal container, service returns 422 (invalid_wav)"
+      }
+    ],
+    "expectation_accept": true,
+    "http_status": 422,
+    "name": "extensible_pcm",
+    "oracle_accepted": true,
+    "oracle_facts": {
+      "bits_per_sample": 16,
+      "byte_count": 70,
+      "channels": 1,
+      "data_chunk_count": 1,
+      "digest": "5385f8550edad1494c3da1ba3aee0c1d7d10c6b8e597318900a662ebb5c4304c",
+      "duration_ms": 0,
+      "frame_count": 1,
+      "peak_dbfs": -120.0,
+      "rms_dbfs": -120.0,
+      "sample_rate": 16000
+    },
+    "oracle_reason": null,
+    "render_checked": false,
+    "render_detail": "",
+    "semantic": false,
+    "service_accepted": false,
+    "service_error_code": "invalid_wav",
+    "service_facts": {}
+  }
+}

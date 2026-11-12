@@ -1,0 +1,71 @@
+{
+  "case": {
+    "description": "extra data chunk exists past the declared RIFF boundary",
+    "name": "hidden_tail_behind_riff_size",
+    "oracle_expected_accept": true,
+    "semantic": true
+  },
+  "original_size": 148,
+  "preserved_oracle_facts": {
+    "accepted": true,
+    "channels": 1,
+    "data_bytes": 2,
+    "data_chunk_count": 1,
+    "data_frame_parts": [
+      1
+    ],
+    "frame_count": 1,
+    "sample_rate": 16000
+  },
+  "reduced_size": 56,
+  "reduction_iterations": 3,
+  "report": {
+    "description": "extra data chunk exists past the declared RIFF boundary",
+    "divergences": [
+      {
+        "category": "fact_mismatch",
+        "detail": "peak_dbfs: service=-9.42840050026504 oracle=-120.000"
+      },
+      {
+        "category": "fact_mismatch",
+        "detail": "rms_dbfs: service=-9.42840050026504 oracle=-120.000"
+      }
+    ],
+    "expectation_accept": true,
+    "http_status": 201,
+    "name": "hidden_tail_behind_riff_size",
+    "oracle_accepted": true,
+    "oracle_facts": {
+      "bits_per_sample": 16,
+      "byte_count": 56,
+      "channels": 1,
+      "data_chunk_count": 1,
+      "digest": "18a775a7ae7e9d499af3141dec8528e9c2814be2b2db3292cb66fc8a7806e5d3",
+      "duration_ms": 0,
+      "frame_count": 1,
+      "peak_dbfs": -120.0,
+      "rms_dbfs": -120.0,
+      "sample_rate": 16000
+    },
+    "oracle_reason": null,
+    "render_checked": true,
+    "render_detail": "rendered 1 frames",
+    "semantic": true,
+    "service_accepted": true,
+    "service_error_code": null,
+    "service_facts": {
+      "bits_per_sample": 16,
+      "byte_count": 56,
+      "channels": 1,
+      "created_at": "2026-11-12T01:07:26.92857Z",
+      "digest": "18a775a7ae7e9d499af3141dec8528e9c2814be2b2db3292cb66fc8a7806e5d3",
+      "duration_ms": 0,
+      "frame_count": 1,
+      "id": "red_00068_hidden_tail_behind_riff_size",
+      "name": "fuzz hidden_tail_behind_riff_size",
+      "peak_dbfs": -9.42840050026504,
+      "rms_dbfs": -9.42840050026504,
+      "sample_rate": 16000
+    }
+  }
+}

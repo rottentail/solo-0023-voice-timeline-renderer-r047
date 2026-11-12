@@ -1,0 +1,77 @@
+{
+  "case": {
+    "description": "PCM payload split across three data chunks with JUNK between parts",
+    "name": "three_data_chunks",
+    "oracle_expected_accept": true,
+    "semantic": true
+  },
+  "original_size": 168,
+  "preserved_oracle_facts": {
+    "accepted": true,
+    "channels": 1,
+    "data_bytes": 6,
+    "data_chunk_count": 3,
+    "data_frame_parts": [
+      1,
+      1,
+      1
+    ],
+    "frame_count": 3,
+    "sample_rate": 16000
+  },
+  "reduced_size": 66,
+  "reduction_iterations": 4,
+  "report": {
+    "description": "PCM payload split across three data chunks with JUNK between parts",
+    "divergences": [
+      {
+        "category": "fact_mismatch",
+        "detail": "frame_count: service=1 oracle=3"
+      },
+      {
+        "category": "fact_mismatch",
+        "detail": "rms_dbfs: service=-11.251213400975754 oracle=-14.919"
+      },
+      {
+        "category": "render_path_timeline_rejected",
+        "detail": "timeline over accepted source returned 422: {\"error\":{\"code\":\"invalid_source_interval\",\"message\":\"source interval must be non-empty and remain inside the source frame count\",\"field\":\"spans[0].source_end_frame\"}}\n"
+      }
+    ],
+    "expectation_accept": true,
+    "http_status": 201,
+    "name": "three_data_chunks",
+    "oracle_accepted": true,
+    "oracle_facts": {
+      "bits_per_sample": 16,
+      "byte_count": 66,
+      "channels": 1,
+      "data_chunk_count": 3,
+      "digest": "8c1722fe1c0d1a6552cb8d63c08f6d033736e08fac4bb8c27f85ee6534727934",
+      "duration_ms": 0,
+      "frame_count": 3,
+      "peak_dbfs": -11.251213400975757,
+      "rms_dbfs": -14.919123544711624,
+      "sample_rate": 16000
+    },
+    "oracle_reason": null,
+    "render_checked": true,
+    "render_detail": "timeline rejected",
+    "semantic": true,
+    "service_accepted": true,
+    "service_error_code": null,
+    "service_facts": {
+      "bits_per_sample": 16,
+      "byte_count": 66,
+      "channels": 1,
+      "created_at": "2026-11-12T01:07:27.120743Z",
+      "digest": "8c1722fe1c0d1a6552cb8d63c08f6d033736e08fac4bb8c27f85ee6534727934",
+      "duration_ms": 0,
+      "frame_count": 1,
+      "id": "red_00081_three_data_chunks",
+      "name": "fuzz three_data_chunks",
+      "peak_dbfs": -11.251213400975754,
+      "rms_dbfs": -11.251213400975754,
+      "sample_rate": 16000
+    }
+  }
+}
